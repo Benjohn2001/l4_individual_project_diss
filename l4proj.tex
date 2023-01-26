@@ -1,6 +1,9 @@
 % REMEMBER: You must not plagiarise anything in your report. Be extremely careful.
 
 \documentclass{l4proj}
+\graphicspath{ {images/} }
+\usepackage{datetime}
+\newdateformat{MDY}{\monthname \space \THEDAY, \THEYEAR}
 
     
 %
@@ -11,9 +14,13 @@
 
 %==============================================================================
 %% METADATA
-\title{Level 4 Project}
+\title{
+    \includegraphics[width=200,height=200]{icon-clock-v2.png} \par
+    {\huge Weasley Clock \par}
+    {\Large Weasley clock inspired social media application \par}
+}
 \author{Ben Johnston}
-\date{Month Day, Year}
+\date{\MDY\today}
 
 \maketitle
 
