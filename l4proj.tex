@@ -4,6 +4,8 @@
 \graphicspath{ {images/} }
 \usepackage{datetime}
 \usepackage{placeins}
+\usepackage{subfiles}
+\usepackage{import}
 \newdateformat{MDY}{\monthname \space \THEDAY, \THEYEAR}
 
     
@@ -165,51 +167,7 @@ What did other people do, and how is it relevant to what you want to do?
 
 %==================================================================================================================================
 \chapter{Analysis/Requirements}
-This chapter will discuss the process of eliciting and prioritising functional and non-functional requirements for the application. This was not only performed at the start of the project, but, was in fact an iterative process with many new requirements being uncovered during design and implementation stages.
-\section{Eliciting of Requirements}
-To elicit the requirements of the application user personas were created to represent potential users of the system. These personas were then used to create user stories that would provide a better understanding of what functionality a potential user would want, and why. Requirements were also elicited through brainstorming sessions alone and with the project supervisor.
-\subsection{User Personas} \label{personas}
-Personas were created to help build a greater understanding of who the potential end-users for the application would be. Each persona described a potential end-user, and their goals and frustrations. This gave a deeper understanding into why a user would want to use the application and what for.
-\begin{figure}[!htbp]
-    \centering
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{User_Persona_1.png}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{User_Persona_2.png}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{User_Persona_3.png}
-    \end{subfigure}
-    \caption{User Personas \textbf{how do i reference this}}
-    \label{fig:personas}
-\end{figure}
-\FloatBarrier
-\subsection{User Stories}
-User stories were then derived from the personas (see \ref{personas}) to greater understand what a user would use the application to do, and why they want to do it. This process of creating personas to envision potential end-users, then deriving stories, is a common and effective practice for eliciting requirements. 
-\begin{figure}[!htbp]
-    \centering
-    \begin{subfigure}[b]{0.90\textwidth}
-        \frame{\includegraphics[width=\textwidth]{User_Stories.png}}
-    \end{subfigure}
-    \caption{User Stories \textbf{how do i reference this}}
-    \label{fig:stories}
-\end{figure}
-\FloatBarrier
-\subsection{Brainstorming}
-Further requirements were also elicited through brainstorming with the project supervisor throughout the project. Weekly discussions concerning what new features could be implemented, and how potential users could possibly interact with the application helped to further elicit requirements.
-\section{Requirement Prioritisation}
-Now that the requirements of the app were clearer the next step was to use a prioritisation technique. MoSCoW prioritization \citep{moscow} was used to categorise the requirements into Must Have, Should Have, Could Have, and Wont Have.
-\begin{itemize}
-    \item \textbf{Must Have (MH)} \par aaaaaa
-    \item \textbf{Should Have (MH)} \par aaaaaa
-    \item \textbf{Could Have (MH)} \par aaaaaa
-    \item \textbf{Wont Have (MH)} \par aaaaa
-\end{itemize}
-\section{Functional Requirements}
-\section{Non-Functional Requirements}
-\section{Summary}
-
+\import{chapters/}{requirements.tex}
 %==================================================================================================================================
 \chapter{Design}
 How is this problem to be approached, without reference to specific implementation details? 
