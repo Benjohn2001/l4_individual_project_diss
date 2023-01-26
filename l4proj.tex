@@ -3,6 +3,7 @@
 \documentclass{l4proj}
 \graphicspath{ {images/} }
 \usepackage{datetime}
+\usepackage{placeins}
 \newdateformat{MDY}{\monthname \space \THEDAY, \THEYEAR}
 
     
@@ -35,24 +36,11 @@
     ABC was 20\% better than XYZ, though it caused rabies in half of subjects.''
 \end{abstract}
 
-%==============================================================================
-
-% EDUCATION REUSE CONSENT FORM
-% If you consent to your project being shown to future students for educational purposes
-% then insert your name and the date below to  sign the education use form that appears in the front of the document. 
-% You must explicitly give consent if you wish to do so.
-% If you sign, your project may be included in the Hall of Fame if it scores particularly highly.
-%
-% Please note that you are under no obligation to sign 
-% this declaration, but doing so would help future students.
-%
-%\def\consentname {My Name} % your full name
-%\def\consentdate {20 March 2018} % the date you agree
-%
+\def\consentname {Ben Johnston} % your full name
+\def\consentdate {26 January 2023} % the date you agree
 \educationalconsent
 
 
-%==============================================================================
 \tableofcontents
 
 %==============================================================================
@@ -177,9 +165,50 @@ What did other people do, and how is it relevant to what you want to do?
 
 %==================================================================================================================================
 \chapter{Analysis/Requirements}
-What is the problem that you want to solve, and how did you arrive at it?
-\section{Guidance}
-Make it clear how you derived the constrained form of your problem via a clear and logical process. 
+This chapter will discuss the process of eliciting and prioritising functional and non-functional requirements for the application. This was not only performed at the start of the project, but, was in fact an iterative process with many new requirements being uncovered during design and implementation stages.
+\section{Eliciting of Requirements}
+To elicit the requirements of the application user personas were created to represent potential users of the system. These personas were then used to create user stories that would provide a better understanding of what functionality a potential user would want, and why. Requirements were also elicited through brainstorming sessions alone and with the project supervisor.
+\subsection{User Personas} \label{personas}
+Personas were created to help build a greater understanding of who the potential end-users for the application would be. Each persona described a potential end-user, and their goals and frustrations. This gave a deeper understanding into why a user would want to use the application and what for.
+\begin{figure}[!htbp]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{User_Persona_1.png}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{User_Persona_2.png}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{User_Persona_3.png}
+    \end{subfigure}
+    \caption{User Personas \textbf{how do i reference this}}
+    \label{fig:personas}
+\end{figure}
+\FloatBarrier
+\subsection{User Stories}
+User stories were then derived from the personas (see \ref{personas}) to greater understand what a user would use the application to do, and why they want to do it. This process of creating personas to envision potential end-users, then deriving stories, is a common and effective practice for eliciting requirements. 
+\begin{figure}[!htbp]
+    \centering
+    \begin{subfigure}[b]{0.90\textwidth}
+        \frame{\includegraphics[width=\textwidth]{User_Stories.png}}
+    \end{subfigure}
+    \caption{User Stories \textbf{how do i reference this}}
+    \label{fig:stories}
+\end{figure}
+\FloatBarrier
+\subsection{Brainstorming}
+Further requirements were also elicited through brainstorming with the project supervisor throughout the project. Weekly discussions concerning what new features could be implemented, and how potential users could possibly interact with the application helped to further elicit requirements.
+\section{Requirement Prioritisation}
+Now that the requirements of the app were clearer the next step was to use a prioritisation technique. MoSCoW prioritization \citep{moscow} was used to categorise the requirements into Must Have, Should Have, Could Have, and Wont Have.
+\begin{itemize}
+    \item \textbf{Must Have (MH)} \par aaaaaa
+    \item \textbf{Should Have (MH)} \par aaaaaa
+    \item \textbf{Could Have (MH)} \par aaaaaa
+    \item \textbf{Wont Have (MH)} \par aaaaa
+\end{itemize}
+\section{Functional Requirements}
+\section{Non-Functional Requirements}
+\section{Summary}
 
 %==================================================================================================================================
 \chapter{Design}
@@ -480,7 +509,6 @@ submitted separately.
 % The bibliography always appears last, after the appendices.
 
 \bibliographystyle{abbrvnat}
-
 \bibliography{l4proj}
 
 \end{document}
