@@ -1,4 +1,4 @@
-This chapter will discuss the process of implementing the application. The justification of the technologies used along with the benefits, and, challenges they potentially presented will be discussed here. A comparative study \cite{compStudy} was performed in the early stages to help decide what technologies were best suited to the task.
+This chapter will discuss the process of implementing the application. The justification of the technologies used along with the benefits, and, challenges they potentially presented will be discussed here.
 
 \section{Version Control}
 Version control is required to have been used throughout the duration of the project. Version control allows us to keep track and manage changes made to source code and other software artefacts. Good utilization of version control is critical to the success of a project, and helps to keep a project organised.
@@ -26,16 +26,17 @@ The GitHub issue tracker was used to keep track of what tasks were still to be c
 \end{figure}
 \subsubsection{Actions}
 GitHub's actions is a continuous integration and continuous delivery tool that allows you to create workflows that are triggered on specific behaviour. A workflow that built and published the application upon a push to the main branch was created so that the newest version of the app was always accessible on my mobile device. A testing workflow was also created with any pushes to the tests, or main branch running the test suite along with code formatting and style checks (see \ref{CodeF&S}).
-\section{Front End Technologies}
+\section{Technologies}
+A comparative study \cite{compStudy} was performed in the early stages to help decide what technologies were best suited to the task. The technologies used throughout the project will be discussed in this section.
 \subsection{React Native}
+When creating a mobile application you currently have two options, native applications for each operating system, or, using frameworks that allow a single code base to create applications for both operating systems. While there are many positives from creating native apps such as being able to utilize many platform specific features, the extra development time to create two consistent, but separate apps was simply infeasible within the time constraints. React Native \cite{reactnative} allows you to create whole applications using only JavaScript \cite{js} in a singular code base. This was chosen over other alternative due to the component nature and flexibility provided by the framework. 
 \subsubsection{Expo}
-\subsubsection{JavaScript}
+Solely React Native development does however require some native coding and the presence of build tools for both operating systems which was an issue. This meant that both Android Studio and XCode would both have to be installed on the device used for developing the application which was an issue for storage space. Due to no native coding being required in the project the choice to use Expo \cite{expo}, a framework used to help ease building React Native applications was made.
 \subsection{Tailwind CSS}
+
 \subsection{Code Formatting \& Style} \label{CodeF&S}
 \subsubsection{ESLint}
 \subsubsection{Prettier}
-
-\section{Back End Technologies}
 \subsection{Firebase}
 \subsubsection{Authentication}
 \subsubsection{Storage}
