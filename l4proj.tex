@@ -6,6 +6,7 @@
 \usepackage{placeins}
 \usepackage{subfiles}
 \usepackage{import}
+\usepackage{url}
 \newdateformat{MDY}{\monthname \space \THEDAY, \THEYEAR}
 
     
@@ -176,15 +177,11 @@ Design should cover the abstract design in such a way that someone else might be
 
 %==================================================================================================================================
 \chapter{Implementation}
-What did you do to implement this idea, and what technical achievements did you make?
-\section{Guidance}
-You can't talk about everything. Cover the high level first, then cover important, relevant or impressive details.
+\import{chapters/}{implementation.tex}
+
+\section{Challenges}
 
 
-
-\section{General points}
-
-These points apply to the whole dissertation, not just this chapter.
 
 
 
@@ -466,7 +463,9 @@ submitted separately.
 % The bibliography style is abbrvnat
 % The bibliography always appears last, after the appendices.
 
-\bibliographystyle{abbrvnat}
+% \bibliographystyle{abbrvnat}
+% \bibliography{l4proj}
+\bibliographystyle{plainurl}
 \bibliography{l4proj}
 
 \end{document}
