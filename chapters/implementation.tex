@@ -37,15 +37,94 @@ Solely React Native development does however require some native coding and the 
   $ expo start --android
 \end{lstlisting}
 \subsection{Tailwind CSS}
-When creating a user interface there are several CSS frameworks and UI kits that can be used in tandem, or, independently of standard CSS style sheets. Tailwind CSS \cite{tailwind} is a CSS framework that allows the developer to create reusable styled components simply by using utility classes in the className property.\begin{lstlisting}[language=JavaScript, caption={Creates a dark purple, rounded view with height 8 units, width 10 units, and, a margin left and right of 1.5 units}]
-  <View className="bg-darkerPurple h-8 w-10 rounded-full mx-1.5">
-\end{lstlisting}
-Tailwind does not include styled components giving full control to the developer over the design. This approach was chosen over a UI kit of created components to allow the design to be unique and flexible to the project requirements. NativeWind \cite{nativewind} is a package used to process the CSS from the tailwind class names into StyleSheet objects, that can then be understood by ReactNative. The use of this technology enhanced the user interface and developer experience by allowing full flexibility over design, and, an easier alternative to traditional CSS style sheets.   
+When creating a user interface there are several CSS frameworks and UI kits that can be used in tandem, or, independently of standard CSS style sheets. Tailwind CSS \cite{tailwind} is a CSS framework that allows the developer to create reusable styled components simply by using utility classes in the className property. Tailwind does not include styled components giving full control to the developer over the design. This approach was chosen over a UI kit of created components to allow the design to be unique and flexible to the project requirements. NativeWind \cite{nativewind} is a package used to process the CSS from the tailwind class names into StyleSheet objects, that can then be understood by ReactNative. The use of this technology enhanced the user interface and developer experience by allowing full flexibility over design, and, an easier alternative to traditional CSS style sheets. 
+\begin{figure}[!htbp]
+    \begin{subfigure}[b]{0.49\textwidth}
+        \begin{lstlisting}[caption={Styled using Tailwind CSS}]
+        <TouchableOpacity
+            onPress={onPressFunction}
+            className="bg-darkerPurple h-12 w-10/12 rounded-full"
+        >
+            <Text className="text-white text-center">
+                Press Me
+            </Text>
+        </TouchableOpacity>
+        \end{lstlisting}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.49\textwidth}
+        \begin{lstlisting}[caption={Styled using traditional StyleSheet}]
+        <TouchableOpacity
+            onPress={onPressFunction}
+            style={styles.button}
+        >
+            <Text style={styles.text}>
+                Press Me
+            </Text>
+        </TouchableOpacity>
+            
+        const styles = StyleSheet.create({
+          button: {
+            justifyContent: 'center',
+            backgroundColor: 'purple',
+            borderRadius: 9999,
+            height:48,
+            width:200,
+          },
+          text: {
+            textAlign: 'center',
+            color: 'white'
+          },
+        });
+        \end{lstlisting}
+    \end{subfigure}
+    \caption{Example of a simple styled button}
+    \label{fig:tailwind}
+\end{figure}
+\FloatBarrier
 \subsection{Code Formatting \& Style} \label{CodeF&S}
-\subsubsection{ESLint}
-\subsubsection{Prettier}
+To ensure the code base was consistent, and free of bugs the code formatter Prettier \cite{prettier}, and, code analysis tool ESLint \cite{eslint} were used. Prettier rewrites code into a consistent style, this ensures that all files throughout the project are consistent. ESLint is a linter used with JavaScript to analyze code finding errors and enforcing a chosen code style. Airbnb \cite{airbnb} code style was chosen for this project as this is the most popular JavaScript style guide. Both these tools were used together to ensure bug free, consistent and readable code. 
 \subsection{Firebase}
+To store and authenticate the data for the application Google's Firebase \cite{firebase} platform was chosen. Firebase allows developers to have real-time access to hosted services from the client-side code. Firebase was chosen due to being optimised for mobile applications with real-time NoSQL \cite{nosql} databases, and, many other helpful services. Although Firebase has a paid tier the free tier would suffice for this project.     
 \subsubsection{Authentication}
+Firebase provides an authentication service to allow the application to verify the identity of a user. The service is easy to set-up and use throughout other services, and, very secure due to being maintained and developed by Google.
 \subsubsection{Storage}
+Firebase cloud storage was used to store all the images used throughout the application. This was easy to implement with references to these images being stored in the database, and the images themselves securely uploaded and downloaded from the cloud storage. User images were stored by user id allowing easy updates and deletions of images without storing now unused images.  
 \subsubsection{Realtime Database}
+The application data is stored in a NoSQL, cloud hosted  database through Firebase's realtime database service. This allows for real-time syncing of data keeping the application up to date with any changes made. This requires no servers and is relatively easy to set-up, manage, and, scale.
+\begin{lstlisting}[caption={How data is stored in the Realtime Database as JSON objects. The key "KKSw9RsMRlSBKjUy7EGOiA1NcFk2", used to access this object in the database, and the user data, including the path to the users profile picture in cloud storage. }]
+"KKSw9RsMRlSBKjUy7EGOiA1NcFk2": {
+    "bio": "Im ben who shops at iceland",
+    "email": "benjohnston2001@icloud.com",
+    "firstName": "Ben",
+    "lastName": "Johnston",
+    "profilePic": "images/profilePics/KKSw9RsMRlSBKjUy7EGOiA1NcFk2",
+    "userName": "Benjohn2001"
+  },
+\end{lstlisting}
+
+\section{Final Product}
+The final product produced provides the user with an easy to use, and elegant application that encompasses all of the must, and, should have requirements. The application uses a consistent design throughout paired with an intuitive navigation system to make the  application easy to learn and use. Users can register for an account, add their friends, then create groups which they can use to track their friends status on a graphical clock.
+\subsection{User Interface}
+By exploiting react natives component based architecture, reusable UI components were constructed and used throughout the application to streamline the implementation, while keeping the design consistent (see \ref{appendix:appScreens}).
+\subsubsection{WCAG}
+The web content accessibility guidelines \cite{wcag}, are a set of accessibility guidelines created by the World Wide Web Consortium (W3C) \cite{w3c} outlining how to make web content more accessible for users with disabilities and impairments. These guidelines also apply to mobile applications and are recommended by the UK government \cite{govWCAG} to help developers create more accessible mobile apps. Some examples of where effort was made to conform to these guidelines are detailed below.
+\begin{figure}[!htbp]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth, height=5.5cm]{keyboard.jpg}
+        \caption{\textbf{Keyboard \& Text Input:} The keyboard shifts focus to the text input box when selected and allows navigation of the form through overriding the return key to 'Next, and, 'Done' \textbf{(Success Criterion 3.2.2)}. A cursor also highlights the current text box selected.}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{navigable.jpg}
+        \caption{\textbf{Navigable:} Application screens have clear and consistent titles and navigation options helping users navigate, and, determine their location. Headings are used to separate UI components which make the use of icons to help guide the user \textbf{(Success Criterion 2.4.2 \& 2.4.6)}.  }
+    \end{subfigure}
+    \vskip\baselineskip
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{navbar.jpg}
+        \caption{\textbf{Location:} Current location is displayed within the navigation bar \textbf{Success Criterion 2.4.8} }
+    \end{subfigure}
+    \caption{Examples of accessibility conformance throughout application}
+    \label{fig:accesibility}
+\end{figure}
+\FloatBarrier
 \section{Challenges}
