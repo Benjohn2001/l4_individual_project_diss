@@ -46,7 +46,8 @@ Solely React Native development does however require some native coding and the 
 \subsection{Tailwind CSS}
 When creating a user interface there are several CSS frameworks and UI kits that can be used in tandem, or, independently of standard CSS style sheets. Tailwind CSS \cite{tailwind} is a CSS framework that allows the developer to create reusable styled components simply by using utility classes in the className property. Tailwind does not include styled components giving full control to the developer over the design. This approach was chosen over a UI kit of created components to allow the design to be unique and flexible to the project requirements. NativeWind \cite{nativewind} is a package used to process the CSS from the tailwind class names into StyleSheet objects, that can then be understood by ReactNative. The use of this technology enhanced the user interface and developer experience by allowing full flexibility over design, and, an easier alternative to traditional CSS style sheets. 
 \begin{figure}[!htbp]
-    \begin{subfigure}[b]{0.49\textwidth}
+    \centering
+    \begin{subfigure}[b]{0.42\textwidth}
         \begin{lstlisting}[language=jsJsx, caption={Styled using Tailwind CSS}]
         <TouchableOpacity
             onPress={onPressFunction}
@@ -59,7 +60,7 @@ When creating a user interface there are several CSS frameworks and UI kits that
         \end{lstlisting}
     \end{subfigure}
     \hspace{2em}
-    \begin{subfigure}[b]{0.49\textwidth}
+    \begin{subfigure}[b]{0.45\textwidth}
         \begin{lstlisting}[language=jsJsx, caption={Styled using a traditional StyleSheet}]
         <TouchableOpacity
             onPress={onPressFunction}
@@ -128,6 +129,7 @@ The web content accessibility guidelines \cite{wcag}, are a set of accessibility
         \includegraphics[width=\textwidth, height=5.5cm]{keyboard.jpg}
         \caption{\textbf{Keyboard \& Text Input:} The keyboard shifts focus to the text input box when selected and allows navigation of the form through overriding the return key to 'Next, and, 'Done' \textbf{(Success Criterion 3.2.2)}. A cursor also highlights the current text box selected.}
     \end{subfigure}
+    \hspace{1.5em}
     \begin{subfigure}[b]{0.45\textwidth}
         \includegraphics[width=\textwidth]{navigable.jpg}
         \caption{\textbf{Navigable:} Application screens have clear and consistent titles and navigation options helping users navigate, and, determine their location. Headings are used to separate UI components which make the use of icons to help guide the user \textbf{(Success Criterion 2.4.2 \& 2.4.6)}.  }
