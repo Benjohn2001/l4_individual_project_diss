@@ -32,15 +32,22 @@ A comparative study \cite{compStudy} was performed in the early stages to help d
 \subsection{React Native}
 When creating a mobile application you currently have two options, native applications for each operating system, or, using frameworks that allow a single code base to create applications for both operating systems. While there are many positives from creating native apps such as being able to utilize many platform specific features, the extra development time to create two consistent, but separate apps was simply infeasible within the time constraints. React Native \cite{reactnative} allows you to create whole applications using only JavaScript \cite{js} in a singular code base. This was chosen over other alternative due to the component nature and flexibility provided by the framework. 
 \subsubsection{Expo}
-Solely React Native development does however require some native coding and the presence of build tools for both operating systems which was an issue. This meant that both Android Studio and XCode would both have to be installed on the device used for developing the application which was an issue for storage space. Due to no native coding being required in the project the choice to use Expo \cite{expo}, a framework used to help ease building React Native applications was made. Expo requires no native coding or build tools allowing you to simply run a command in the terminal to be able to access the application on your device or emulator.\begin{lstlisting}[language=bash, caption=To build and start applications with expo for iOS or Android]
+Solely React Native development does however require some native coding and the presence of build tools for both operating systems which was an issue. This meant that both Android Studio and XCode would both have to be installed on the device used for developing the application which was an issue for storage space. Due to no native coding being required in the project the choice to use Expo \cite{expo}, a framework used to help ease building React Native applications was made. Expo requires no native coding or build tools allowing you to simply run a command in the terminal to be able to access the application on your device or emulator.
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}[b]{0.5\textwidth}
+\begin{lstlisting}[language=bash]
   $ expo start --ios
   $ expo start --android
 \end{lstlisting}
+\end{subfigure}
+\caption{To build and start applications with expo for iOS or Android}
+\end{figure}
 \subsection{Tailwind CSS}
 When creating a user interface there are several CSS frameworks and UI kits that can be used in tandem, or, independently of standard CSS style sheets. Tailwind CSS \cite{tailwind} is a CSS framework that allows the developer to create reusable styled components simply by using utility classes in the className property. Tailwind does not include styled components giving full control to the developer over the design. This approach was chosen over a UI kit of created components to allow the design to be unique and flexible to the project requirements. NativeWind \cite{nativewind} is a package used to process the CSS from the tailwind class names into StyleSheet objects, that can then be understood by ReactNative. The use of this technology enhanced the user interface and developer experience by allowing full flexibility over design, and, an easier alternative to traditional CSS style sheets. 
 \begin{figure}[!htbp]
     \begin{subfigure}[b]{0.49\textwidth}
-        \begin{lstlisting}[caption={Styled using Tailwind CSS}]
+        \begin{lstlisting}[language=jsJsx, caption={Styled using Tailwind CSS}]
         <TouchableOpacity
             onPress={onPressFunction}
             className="bg-darkerPurple h-12 w-10/12 rounded-full"
@@ -51,8 +58,9 @@ When creating a user interface there are several CSS frameworks and UI kits that
         </TouchableOpacity>
         \end{lstlisting}
     \end{subfigure}
+    \hspace{2em}
     \begin{subfigure}[b]{0.49\textwidth}
-        \begin{lstlisting}[caption={Styled using traditional StyleSheet}]
+        \begin{lstlisting}[language=jsJsx, caption={Styled using a traditional StyleSheet}]
         <TouchableOpacity
             onPress={onPressFunction}
             style={styles.button}
@@ -91,7 +99,10 @@ Firebase provides an authentication service to allow the application to verify t
 Firebase cloud storage was used to store all the images used throughout the application. This was easy to implement with references to these images being stored in the database, and the images themselves securely uploaded and downloaded from the cloud storage. User images were stored by user id allowing easy updates and deletions of images without storing now unused images.  
 \subsubsection{Realtime Database}
 The application data is stored in a NoSQL, cloud hosted  database through Firebase's realtime database service. This allows for real-time syncing of data keeping the application up to date with any changes made. This requires no servers and is relatively easy to set-up, manage, and, scale.
-\begin{lstlisting}[caption={How data is stored in the Realtime Database as JSON objects. The key "KKSw9RsMRlSBKjUy7EGOiA1NcFk2", used to access this object in the database, and the user data, including the path to the users profile picture in cloud storage. }]
+\begin{figure}[!htbp]
+\centering
+\begin{subfigure}[b]{0.85\textwidth}
+\begin{lstlisting}[language=json]
 "KKSw9RsMRlSBKjUy7EGOiA1NcFk2": {
     "bio": "Im ben who shops at iceland",
     "email": "benjohnston2001@icloud.com",
@@ -101,6 +112,9 @@ The application data is stored in a NoSQL, cloud hosted  database through Fireba
     "userName": "Benjohn2001"
   },
 \end{lstlisting}
+\end{subfigure}
+\caption{How data is stored in the Realtime Database as JSON objects. The key "KKSw9RsMRlSBKjUy7EGOiA1NcFk2", used to access this object in the database, and the user data, including the path to the users profile picture in cloud storage.}
+\end{figure}
 
 \section{Final Product}
 The final product produced provides the user with an easy to use, and elegant application that encompasses all of the must, and, should have requirements. The application uses a consistent design throughout paired with an intuitive navigation system to make the  application easy to learn and use. Users can register for an account, add their friends, then create groups which they can use to track their friends status on a graphical clock.

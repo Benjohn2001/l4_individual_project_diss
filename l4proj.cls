@@ -31,6 +31,7 @@
   \usepackage{textcomp}
   \usepackage[english]{babel}
   \usepackage[T1]{fontenc}
+  \usepackage{listings}
 \else
   % make sure the fonts are actually set
   \usepackage{fontspec}
@@ -295,3 +296,37 @@ textfont=it,tableposition=above]{caption}
       \parsep=1pt plus 1pt
       \itemsep=\parsep}
 
+\definecolor{propertiesLBLue}{RGB}{151,212,244}
+\definecolor{greenNum}{RGB}{176,201,164}
+\definecolor{blueKeyR}{RGB}{85,155,212}
+\definecolor{str}{RGB}{203,143,119}
+\definecolor{brace}{RGB}{22,160,255}
+
+\lstdefinelanguage{jsJsx}{
+    keywords={TouchableOpacity, Text, StyleSheet, const},
+    keywordstyle=\color{blueKeyR}\bfseries,
+    ndkeywords={onPress, className, style},
+    ndkeywordstyle=\color{propertiesLBLue}\bfseries,
+    stringstyle=\color{str}\ttfamily,
+    morestring=[b]',
+    morestring=[b]",
+    literate=
+	*{0}{{{\color{greenNum}0}}}{1}
+	{1}{{{\color{greenNum}1}}}{1}
+	{2}{{{\color{greenNum}2}}}{1}
+	{3}{{{\color{greenNum}3}}}{1}
+	{4}{{{\color{greenNum}4}}}{1}
+	{5}{{{\color{greenNum}5}}}{1}
+	{6}{{{\color{greenNum}6}}}{1}
+	{7}{{{\color{greenNum}7}}}{1}
+	{8}{{{\color{greenNum}8}}}{1}
+	{9}{{{\color{greenNum}9}}}{1}
+	{\{}{{{\color{brace}{\{}}}}{1}
+	{\}}{{{\color{brace}{\}}}}}{1},
+}
+
+\lstdefinelanguage{json}{
+    stringstyle=\color{str}\ttfamily,
+    morestring=[b]',
+    morestring=[b]",
+}
