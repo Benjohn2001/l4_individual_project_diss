@@ -55,7 +55,6 @@
 
 
 
-
 \usepackage{etoolbox}
 \usepackage[compact]{titlesec} % section heading formatting
 \usepackage{color} % colors
@@ -66,7 +65,7 @@
 % remove dots from ToC
 \usepackage[titles]{tocloft} 
 \renewcommand{\cftdot}{}
-\usepackage[nottoc]{tocbibind}
+\usepackage[nottoc, notlof]{tocbibind}
 
 % from: https://gist.github.com/FelipeCortez/10729134
 % set up listings for prettier output
