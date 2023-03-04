@@ -106,3 +106,32 @@
     \caption{The JSON tree for the applications realtime database}
 \end{figure}
 \FloatBarrier
+
+\section{Reusable Component}\label{appendix:reusable}
+\begin{figure}[!htbp]
+    \centering
+    \begin{subfigure}[b]{0.9\textwidth}
+        \begin{lstlisting}[language=jsJsx]
+        function AppButtonPurple(props) {
+          const { title, onPressFunct } = props;
+          return (
+            <TouchableOpacity
+              onPress={onPressFunct}
+              className="bg-darkerPurple h-12 w-10/12 pt-3 rounded-full mx-1.5"
+            >
+              <Text className="text-white text-center">{title}</Text>
+            </TouchableOpacity>
+          );
+        }
+        
+        AppButtonPurple.propTypes = {
+          title: PropTypes.string.isRequired,
+          onPressFunct: PropTypes.func.isRequired,
+        };
+        \end{lstlisting}
+    \end{subfigure}
+    \caption{Example of a reusable component}
+    \small\textit{Here an onPress function and title are passed to this component to create a purple button with this title and onPress functionality. }
+    \label{fig:tailwind}
+\end{figure}
+\FloatBarrier

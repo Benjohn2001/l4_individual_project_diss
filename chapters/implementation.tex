@@ -144,9 +144,28 @@ The web content accessibility guidelines \cite{wcag}, are a set of accessibility
     \label{fig:accesibility}
 \end{figure}
 \FloatBarrier
+\subsubsection{Nielsen's Heuristics }
+In 1990 Jakob Nielsen created ten usability heuristics \cite{nielsen} to help designers create more usable interfaces. These heuristics were consulted when implementing the user interface to help create a greater user experience. A navigation bar showing what page the user is on and page headings help the user have a visibility of system status. Recognition rather than recall is applied with the use of common icons throughout the application reducing the cognitive effort required by the user. The interface only displays the information needed by the user and has a minimalist design to not distract the user. Error messages are displayed in plain text form through alerts to the user so that they can understand the error, password restrictions for example. Providing users with a clear exit and having a consistent design was also integral to the implementation to lower the cognitive load of the user and keep the user in control. These heuristics along with the WCAG above were considered throughout the implementation phase and helped to deliver a final product that was not only aesthetically pleasing, but, usable.
+
 \subsubsection{UI Implementation}
+The user interface was created by having screens that would load the data from Firebase and then present the data through custom, and, core react native components. Reusable customized components were used throughout the application to diplay the relevant data. These components have 'props', which are the parameters we use to allow us to reuse the same components with different properties. These props can contain the data to be displayed, or, even icons and colours we would like to style the component with (see \ref{fig:reuseComp} for usage, and, \ref{appendix:reusable} for component code).
 
 
+\begin{figure}[!htbp]
+    \centering
+    \begin{subfigure}[b]{0.25\textwidth}
+        \includegraphics[width=\textwidth]{signIn.jpg}
+        \caption{Register and Sign In buttons on Sign In page}
+    \end{subfigure}
+    \hspace{1.5em}
+    \begin{subfigure}[b]{0.25\textwidth}
+        \includegraphics[width=\textwidth]{clock.jpg}
+        \caption{Settings and Customise buttons on Group page}
+    \end{subfigure}
+    \caption{Example reuse of TwoButtonSide Component}
+    \label{fig:reuseComp}
+\end{figure}
+\FloatBarrier
 \subsection{Back End of Application}
 As discussed in \ref{firebaseSection}, Firebase was used to store and manage all the data for the application, including graphics, and, authentication data. Firebase realtime database is a NoSQL database architecture storing data as objects in a JSON tree, as shown in figure \ref{jsonResp}. Application data was stored in the JSON objects users(user data), clockFace(clock background), friends(a users friends list), groupMembers(a groups members), groups(a users groups), and, locations(storing a groups locations) (see \ref{appendix:rtdb}). As we are unable to store images in the realtime database image paths were stored, and then used to download the image when needed from cloud storage. User images were stored by user id allowing easy updates due to old images being overwritten and, not stored. An email and password were used to create accounts and be authenticated. Firebase authentication provided easy to use SDKs facilitating sign in, forgotten password, and, the registering of new users. The sole use of Firebase throughout this project allowed the back end of the application to stay centralized within a sole platform, making it easier to implement and maintain. A diagram visualising the use of these Firebase services is shown below (see \ref{fig:firebaseDiag}).
 \begin{figure}[!htbp]
@@ -159,3 +178,90 @@ As discussed in \ref{firebaseSection}, Firebase was used to store and manage all
 \end{figure}
 \FloatBarrier
 \section{Challenges}
+Throughout this project many challenges were faced during the implementation and a few have been documented here.
+\subsection*{Hand Placement}
+After implementing the clock hands functionality it was discovered that even while doing random hand placement in the statuses sector, if multiple users had all selected the same status, there was significant overlap. This overlap presented issues for the user, making the clock difficult to interpret, a large issue. As we could not just expand these sectors due to a hard constraint of screen real estate, the approach of varying the length of the clock hand along with random angles was taken to try and reduce hand overlap. 
+\vskip\baselineskip
+\begin{algorithmic}[1]
+\State $angle \gets randomAngleInSector$
+\State $handRadius \gets clockRadius-30$
+\If{$memberStatuses.includes(userStatus)$}
+    \State $handLength \gets (handRadius - (clockRadius / noOfMembers + 1)) * noOfMembersWithSameStatus$
+\Else
+    \State $handLength \gets handRadius - 10$
+\EndIf
+\end{algorithmic}
+\vskip\baselineskip
+We first assign a random angle in the sector to define the hands position, then set the hands radius to be less than the clocks to allow the hand with user avatar to fit. We then calculate the length by checking whether another user has also selected that status and if so, we split the vertical space of the sector into even chunks and then subtract as many members also choosing this status multiplied by this chunk value. If the user is alone in this sector, 10 units are subtracted to give the hand length. This approach is  used to give the desired result of reducing the overlap between hands as shown in \ref{fig:handPlacement} below.   
+\begin{figure}[!htbp]
+    \centering
+    \begin{subfigure}[b]{0.33\textwidth}
+        \includegraphics[width=\textwidth]{beforeHand.jpg}
+        \caption{\textbf{Before:} Two hands overlapping in 'Free'}
+    \end{subfigure}
+    \hspace{1.5em}
+    \begin{subfigure}[b]{0.33\textwidth}
+        \includegraphics[width=\textwidth]{afterHand.jpg}
+        \caption{\textbf{After:} Two hands are spaced reducing overlap}
+    \end{subfigure}
+    \caption{Hand placement solution}
+    \label{fig:handPlacement}
+\end{figure}
+\FloatBarrier
+
+\subsection*{Keyboard Covering Text Entry}
+An issue noted whilst gathering user feedback was when a user was typing into the text inputs, the input box was not visible creating frustration for the user. This was an issue not only for accessibility, but also usability as users reported this as a friction point that would stop them from using the application. A number of solutions were tested with a Keyboard aware scroll view being nested within a scroll view containing the form data. As seen in \ref{fig:keyboard}, now when the user selects a text input, the screen focuses on the input and allows the user to scroll the form even when the keyboard is open. This was a significant improvement on the previous design adding not only to user accessibility, but, also user satisfaction.
+\begin{figure}[!htbp]
+    \centering
+    \begin{subfigure}[b]{0.25\textwidth}
+        \includegraphics[width=\textwidth]{beforeKeyboard.jpg}
+        \caption{\textbf{Before:} The password text input is covered by the keyboard}
+    \end{subfigure}
+    \hspace{1.5em}
+    \begin{subfigure}[b]{0.25\textwidth}
+        \includegraphics[width=\textwidth]{afterKeyboard.jpg}
+        \caption{\textbf{After:} The screen has moved down to  allow  the user to see the password text input}
+    \end{subfigure}
+    \caption{Keyboard covering text entry solution }
+    \label{fig:keyboard}
+\end{figure}
+\FloatBarrier
+
+\subsection*{Asynchronous Issues}
+Interactions with the realtime database are performed through the use of an asynchronous listener to a reference to the database. For functions relying on data being previously fetched this creates an issue. When retrieving data from the database a promise is returned, that will either resolve to the desired result when fetched, or return an error. If a future function relies on this data being fetched, and we have not waited on the asynchronous function to return our data, we will create problems. JavaScript provides \textit{async}, and, \textit{await} keywords to allow the developer to create asynchronous functions and await their promises being resolved. The use of these keywords allowed functions to wait until data had been fetched or updated before continuing (see \ref{fig:asyncAwait}). Throughout the implementation phase this was a constant challenge that presented itself when trying to integrate asynchronous, and, synchronous code together.
+
+\begin{figure}[!htbp]
+    \centering
+    \begin{subfigure}[b]{0.8\textwidth}
+        \begin{lstlisting}[language=jsJsx]
+        onPress={async () => {
+              await update(ref(db, `/users/${uid}`), {
+                bio: bioNew,
+              }).then(() => {
+                Alert.alert("Success", "Bio changed succesfully");
+                setBioModalVisible(false);
+              });
+        }}
+        \end{lstlisting}
+    \end{subfigure}
+\caption{Example of awaiting the resolve of a promise from an asynchronous function}
+\small\textit{The onPress function waits until the database has been updated with the new bio which activates the then function that alerts the user to the success and closes the Modal}
+\label{fig:asyncAwait}
+\end{figure}
+\FloatBarrier
+
+\subsection*{Rendering Issues}
+An advantage of using React native is that when our props or state changes this causes a re-render giving the most up to date UI to the user. While this is an advantage, it also creates problems when a screen is either not re-rendering to show the most up to date information, or, is rendering too frequently. When we use state in our application for storing values, any updates have the side effect of re-rendering the page unnecessarily. This can cause state within components and functions to be lost creating unwanted problems. React Native provides a \textit{useEffect} hook that can be used to only execute the code contained if a dependency listed has changed (see \ref{fig:useEffect}). This hook was used to control the renders of a page by only fetching data and updating state when required. Ensuring data was loaded and pages re-rendered only when necessary was a challenge dealt with throughout the entirety of the project, but, made easier with the use of this hook.
+\begin{figure}[!htbp]
+    \centering
+    \begin{subfigure}[b]{0.8\textwidth}
+        \begin{lstlisting}[language=jsJsx]
+        React.useEffect(() => { fetchData(); }, [isHandModalVisible]);
+        \end{lstlisting}
+    \end{subfigure}
+\caption{Example of useEffect hook for controlling renders}
+\small\textit{The fetchData function is only called when the state of isHandModalVisible has changed}
+\label{fig:useEffect}
+\end{figure}
+\FloatBarrier
+\section{Summary}

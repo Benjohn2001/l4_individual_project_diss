@@ -270,8 +270,9 @@ textfont=it,tableposition=above]{caption}
 \captionsetup{subrefformat=parens}
 
 % Algorithm typesetting package
-\usepackage[plain, noline, shortend, linesnumberedhidden]{algorithm2e}
+\usepackage{algpseudocode}
 \SetAlFnt{\sffamily \small}
+
 
 % adjust spacing
 \titlespacing{\section}{10pt}{1.5\baselineskip}{8pt plus 3pt minus 3pt}
@@ -302,7 +303,7 @@ textfont=it,tableposition=above]{caption}
 \definecolor{brace}{RGB}{22,160,255}
 
 \lstdefinelanguage{jsJsx}{
-    keywords={TouchableOpacity, Text, StyleSheet, const},
+    keywords={TouchableOpacity, Text, StyleSheet, const, function, return, async, await, false},
     keywordstyle=\color{blueKeyR}\bfseries,
     ndkeywords={onPress, className, style},
     ndkeywordstyle=\color{propertiesLBLue}\bfseries,
