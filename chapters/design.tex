@@ -1,10 +1,10 @@
 This chapter will cover the design phase of the project and the decisions  that were made during. The design phase was integral to the success of the project, requiring a solid design concept to build the application upon.
 
 \section{Initial Idea}
-
+During the initial project meeting an initial project plan was made \ref{appendix:initIdea}, The initial idea proposed the creation of a mobile application using React Native \cite{reactnative} to create the user interface and application logic, and, Firebase \cite{firebase} to store all the data and authentication information. The idea was to allow users to set up, and have multiple groups which will have preset and custom locations for users to show their status. Users would have a picture that would be used on these clock hands to add personalization, and the app would be used to alleviate the struggles of not knowing your friends status. The initial idea and further research allowed the designing and requirement gathering to begin.
 
 \section{Design Decisions}\label{designDecis}
-To design and implement this application idea many decisions, and, considerations had to made in order to deliver a suitable final product. Although the initial idea proposed the use of React Native \cite{reactnative} and Firebase \cite{firebase}, other technologies were researched through a comparative study \cite{compStudy} to ensure this was the correct decision. As Firebase is a backend-as-a-service this was chosen over other alternatives due to the ability to create high quality applications in a short amount of time due to the various tools and services Firebase offers. Firebase eliminated the security concerns for storing data and authenticating  users by this requirement being satisfied by Google themselves, making this Firebase solution very secure. The decision to create a cross-platform application was made at the initial stages due to the time constraints present in this project. Although native applications can often be more efficient and responsive due to being purpose built for a specific operating system, further research discovered that cross platform development can still produce effective applications. The extra benefits incurred from native development were also not to be exploited in this project, so this was a logical decision, given this research, and, the project time constraints.
+To design and implement this application idea many decisions, and, considerations had to made in order to deliver a suitable final product. Although the initial idea proposed the use of React Native and Firebase, other technologies were researched through a comparative study \cite{compStudy} to ensure this was the correct decision. As Firebase is a backend-as-a-service this was chosen over other alternatives due to the ability to create high quality applications in a short amount of time due to the various tools and services Firebase offers. Firebase eliminated the security concerns for storing data and authenticating  users by this requirement being satisfied by Google themselves, making this Firebase solution very secure. The decision to create a cross-platform application was made at the initial stages due to the time constraints present in this project. Although native applications can often be more efficient and responsive due to being purpose built for a specific operating system, further research discovered that cross platform development can still produce effective applications. The extra benefits incurred from native development were also not to be exploited in this project, so this was a logical decision, given this research, and, the project time constraints.
 
 \section{Software Architecture}
 Model View Controller (MVC) \cite{mvc} is a software architecture pattern that is commonly used in mobile and web application development. This pattern involves a model that contains the data for the application, the view that displays this data to the user, and, the controller which acts as a middle-man between the two by handling interactions with the view and model. For this project however the decision was made to use React Native (see \ref{reactSection}) and Firebase (see \ref{firebaseSection}), this makes this not  as clear a distinction between our model, view, and, controller. Firebase is clearly our model as we are using it to store all our data, and we are using React Native to present our data as the view, but, there is no clear answer as to what is our controller. In our project we have more of a view-controller with our screens interacting with the Firebase database and rendering our components. An initial component diagram was drawn up to visualise this concept shown in \ref{fig:compDiag}.
@@ -19,7 +19,23 @@ Model View Controller (MVC) \cite{mvc} is a software architecture pattern that i
 \FloatBarrier
 Here, we can see that the application code is interacting with Firebase, and then formatting this data to then be displayed to the user. The application code is also handling inputs from the user and then formatting this data to then be sent to Firebase to be stored. This is still fundamentally a model view controller architecture with separations between storing the data, interacting with this data model, and, displaying this data, but, with the controlling and displaying of data more integrated together into a more view-controller.
 
-\section{User Interface}
+\section{Data \& Media Storage}\label{dataMedStor}
+Whilst the database design would change throughout the project due to new requirements and features, an initial plan of what data we would need to store, and how, would be helpful. After some initial research it was discovered that Firebase's realtime database does not allow the storage of media, so, their cloud storage would have to be used, with a path to the image stored in the database. The only images we would need to store were the user profile pictures, and, the clock face images. Their were two main categories of data that would need to be stored, user, and, group.
+
+\begin{figure}[!htbp]
+    \centering
+    \begin{subfigure}[b]{0.6\textwidth}
+        \frame{\includegraphics[width=\textwidth]{dataDesign.png}}
+    \end{subfigure}
+    \caption{Initial data storage design} 
+    \label{fig:dataDesign}
+\end{figure}
+\FloatBarrier
+
+Above is a simplistic representation of the data and media that was required to be stored.
+In practice however, these data categories would need to be separated as nesting sizeable data inside JSON objects can create performance issues when fetching data. As when fetching data from Firebase we also retrieve all the child nodes, even if they are not to be used \cite{fbStructData}.
+
+\section{User Interface}\label{UIDesign}
 \subsection*{Figma}
 To design the user interface some initial sketches were drawn up and then converted into more concrete wire frames. Figma \cite{figma} an interactive interface design tool was used to create these wire frames. Figma allows the user to create high quality interface designs that can incorporate animation, leading to the creation of an initial design prototype. Through their mobile application you can visualise these design prototypes on your device, enhancing the developer experience and leading to better designs. Shown below are some initial designs that were created through Figma, and then later developed into the final application. For the full set of designs see \ref{appendix:figmaScreens}.
 
