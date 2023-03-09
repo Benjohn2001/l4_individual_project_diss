@@ -50,8 +50,12 @@
 \usepackage[style]{abstract} % abstract styling
 
 % set bibliography styling
-% \usepackage{natbib}
+\usepackage[numbers]{natbib}
 % \bibpunct{(}{)}{;}{a}{}{;}
+
+
+\usepackage{enumitem}
+
 
 
 
@@ -120,6 +124,9 @@ textfont=it,tableposition=above]{caption}
 \newcommand{\secfont}{\normalfont\sffamily}
 % % style the sections and the abstract
 % \allsectionsfont{\secfont}
+
+\usepackage{pgfplots}
+\usepackage{floatrow}
 
 
 \renewcommand{\abstractnamefont}{\Large\secfont}
