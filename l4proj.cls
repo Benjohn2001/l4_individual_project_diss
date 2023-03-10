@@ -310,7 +310,7 @@ textfont=it,tableposition=above]{caption}
 \definecolor{brace}{RGB}{22,160,255}
 
 \lstdefinelanguage{jsJsx}{
-    keywords={TouchableOpacity, Text, StyleSheet, const, function, return, async, await, false},
+    keywords={TouchableOpacity, Text, StyleSheet, const, function, return, async, await, false, import, from, GroupScreen},
     keywordstyle=\color{blueKeyR}\bfseries,
     ndkeywords={onPress, className, style},
     ndkeywordstyle=\color{propertiesLBLue}\bfseries,

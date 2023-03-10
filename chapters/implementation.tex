@@ -24,7 +24,7 @@ The GitHub issue tracker was used to keep track of what tasks were still to be c
     \caption{Examples of issues created in GitHub's issue tracker}
     \label{fig:issues}
 \end{figure}
-\subsubsection{Actions}
+\subsubsection{Actions}\label{ghActions}
 GitHub actions is a continuous integration and continuous delivery tool that allows the developer to create job workflows that can be triggered on specific behaviour. A workflow that built, and, published the application upon a push to the main branch was created. This enabled the newest version of the application to be accessible on my mobile device at all times, allowing constant testing of new features to occur. A testing workflow was also created with pushes to the tests, or main branch running the test suite, along with code formatting, and, style checks (see \ref{CodeF&S}).
 \section{Technologies}
 As mentioned in \ref{designDecis}, a comparative study \cite{compStudy} was performed in the early stages to help decide what technologies were best suited to the task. The technologies used to create the application will be discussed in this section.
@@ -252,7 +252,7 @@ Interactions with the realtime database are performed through the use of an asyn
 \FloatBarrier
 
 \subsection*{Rendering Issues}
-An advantage of using React native is that when props or a state changes, a render occurs presenting the most up to date UI to the user. Whilst this is an advantage, this also creates problems when a screen is either not re-rendering to show the most up to date information, or, is rendering too frequently. When we use state in our application for storing values, any updates to this state have the side effect of re-rendering the page unnecessarily. This can cause state within components and functions to be lost, creating unwanted problems. React Native provides a \textit{useEffect} hook that can be used to only execute the code contained if a dependency listed has changed (see \ref{fig:useEffect}). This hook was used to control the renders of a page by only fetching data and updating state when required. Ensuring data was loaded and pages re-rendered only when necessary was a challenge dealt with throughout the entirety of the project, but, made easier with the use of this hook.
+An advantage of using React native is that when props or a state changes, a render occurs presenting the most up to date UI to the user. Whilst this is an advantage, this also creates problems when a screen is either not re-rendering to show the most up to date information, or, is rendering too frequently. When we use state in our application for storing values, any updates to this state have the side effect of re-rendering the page unnecessarily. This can cause state within components and functions to be lost, creating unwanted problems. React Native provides a \texttt{useEffect} hook that can be used to only execute the code contained if a dependency listed has changed (see \ref{fig:useEffect}). This hook was used to control the renders of a page by only fetching data and updating state when required. Ensuring data was loaded and pages re-rendered only when necessary was a challenge dealt with throughout the entirety of the project, but, made easier with the use of this hook.
 \begin{figure}[!htbp]
     \centering
     \begin{subfigure}[b]{0.8\textwidth}
