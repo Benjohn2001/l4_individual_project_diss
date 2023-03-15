@@ -22,7 +22,7 @@ Jest is a testing framework that allows the easy creation of tests for JavaScrip
         });
         \end{lstlisting}
     \end{subfigure}
-\caption{Example of a unit test on a function converting polar coordinates, to Cartesian, and, navigation.}
+\caption[Example of a unit test]{Example of a unit test on a function converting polar coordinates, to Cartesian, and, navigation.}
 \label{fig:jestUnit}
 \end{figure}
 \FloatBarrier
@@ -48,7 +48,7 @@ Here we can see a test is created that expects a certain return value from the \
 
 Here a snapshot test is created to check the user interface is loading correctly for the \texttt{GroupScreen}. The first time a snapshot test is run Jest creates, and, stores a JSON snapshot of the user interface. When run again, this snapshot is then compared against the current user interface for differences, failing if the two snapshots differ. All tests for the application were executed through an \texttt{npm test} command, and, on commits to the main, and, test branches from a GitHub action \ref{ghActions}.
 
-\subsection{Testing Challenges}
+\subsection{Testing Challenges}\label{testChall}
 
 The main challenge that presented itself during testing was application code relying on Firebase. As all screens contained application, and, user interface code this meant these elements could not be separately tested as the user interface relied on this application code. Many solutions were investigated but unfortunately none were suitable within the time constraints of the  project. To be able to fully test this application, a Firebase local emulator suite would have to be set up to run tests locally. To learn and set up this emulator suite along with writing these tests was not feasible, but is a feature that would be great to integrate in future releases for greater test coverage. The alternative was to mock all the Firebase functions, and, services that were used to provide mocked inputs to the  user interface, and application functions, unfortunately this was also infeasible within the time constraints. Due to this, full test coverage was not able to be achieved for all screens, however, components were unaffected so an average of 84.31\% of the lines of component code were covered by tests. The user interface of screens was also tested with snapshot, and, unit testing establishing some test coverage.   
 
