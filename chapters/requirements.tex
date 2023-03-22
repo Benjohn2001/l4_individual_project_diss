@@ -1,8 +1,8 @@
-This chapter will discuss the process of eliciting, and, prioritising the functional, and, non-functional requirements for the application. This was not only performed at the start of the project, but, was in fact an iterative process, with many new requirements uncovered during the design and implementation stages.
+This chapter will discuss the process of eliciting, and, prioritising the functional, and non-functional requirements for the application. This was not only performed at the start of the project, but was in fact an iterative process, with many new requirements uncovered during the design and implementation stages.
 \section{Eliciting of Requirements}
 To elicit the requirements of the application user personas were created to represent potential users of the system. These personas were then used to create user stories that would provide a better understanding of what functionality a potential user would want, and why. Requirements were also discovered through brainstorming sessions alone, and, with the project supervisor.
 \subsection{User Personas} \label{personas}
-Personas were created to help build a greater understanding of who the potential end-users for the application would be. Each persona described a potential end-user, their goals, and, their frustrations. This gave a deeper understanding into why a user would want to use the application, and, for what purpose.
+Personas were created to help build a greater understanding of who the potential end-users for the application would be. Each persona described a potential end-user, their goals, and their frustrations. This gave a deeper understanding into why a user would want to use the application, and, for what purpose.
 \begin{figure}[!htbp]
     \centering
     \begin{subfigure}[b]{0.44\textwidth}
@@ -25,7 +25,7 @@ User stories were then derived from the personas (see \ref{personas}) to greater
 \begin{figure}[!htbp]
     \centering
     \begin{subfigure}[b]{0.90\textwidth}
-        \frame{\includegraphics[width=\textwidth]{User_Stories.png}}
+        \frame{\includegraphics[width=\textwidth]{UserStoriesFixed.png}}
     \end{subfigure}
     \caption{User Stories}
     \label{fig:stories}
@@ -34,20 +34,20 @@ User stories were then derived from the personas (see \ref{personas}) to greater
 \subsection{Brainstorming}
 Further requirements were also added through brainstorming sessions with the project supervisor throughout the project. Weekly discussions concerning what new features could be implemented, and how potential users could possibly interact with the application helped to further gather requirements.
 \section{Requirement Prioritisation}\label{reqPrior}
-Now the requirements of the application were clearer, the next step was to use a prioritisation technique to establish the priorities of  each requirement. MoSCoW prioritization \cite{moscow} was used to categorise the requirements into Must Have, Should Have, Could Have, and Wont Have.
+Now the requirements of the application were clearer, the next step was to use a prioritisation technique to establish the priorities of each requirement. MoSCoW prioritization \cite{moscow} was used to categorise the requirements into Must Have, Should Have, Could Have, and Won't Have.
 \begin{itemize}
     \item \textbf{Must Have (MH)} \par
-    Requirements labeled as must have are of the highest priority and are the main requirements that need to be fulfilled. 
+    Requirements labeled as `must have' are of the highest priority and are the main requirements that need to be fulfilled. 
     \item \textbf{Should Have (SH)} \par
-    Requirements labeled as should have are not essential to the application but they should be fulfilled. These are the second highest priority requirements. 
+    Requirements labeled as `should have' are not essential to the application but they should be fulfilled. These are the second highest priority requirements. 
     \item \textbf{Could Have (CH)} \par
-    Requirements labeled as could have would be nice to be fulfilled but are not needed and should not be prioritised. These are the third highest priority requirements. 
-    \item \textbf{Wont Have (WH)} \par
-    Requirements labeled as wont have are requirements that could be met in further development but are not a priority to be fulfilled at present. These are the lowest priority requirements. 
+    Requirements labeled as `could have' would be nice to be fulfilled but are not needed and should not be prioritised. These are the third highest priority requirements. 
+    \item \textbf{Won't Have (WH)} \par
+    Requirements labeled as `won't have' are requirements that could be met in further development but are not a priority to be fulfilled at present. These are the lowest priority requirements. 
 \end{itemize}
 The priority of requirements changed throughout the project due to a change of vision, increased difficulty, or for many other reasons. The requirements are shown in \ref{functional} and \ref{non-functional} in their priority at the end of the project.
 \section{Functional Requirements} \label{functional}
-These requirements are functional, and describe the features that the application should have and what the application should do. 
+These requirements are functional and describe the features that the application should have and what the application should do. 
 \begin{enumerate}
     \item \textbf{[MH] The application should be available on both Android and iOS} \par
     This is essential that the application can support both mobile operating systems so that any user can download the application.
@@ -55,29 +55,29 @@ These requirements are functional, and describe the features that the applicatio
     This is essential that the application has a back-end to store all the data for the application and users. Firebase allows the storage of data in their real time database, and images in storage. Firebase allows the app to have synced data in real time which is a great feature.
     \item \textbf{[MH] The application should display the status of friends on a graphical clock face} \par
     This is the main feature of the application and is essential to the completion of the project.
-    \item \textbf{[MH] The application should have a home page displaying the users groups} \par
+    \item \textbf{[MH] The application should have a home page displaying the user's groups} \par
     This is important as users should be greeted with a display of all their groups so they can easily and efficiently navigate to them.
     \item \textbf{[SH] The application should have the functionality to create a group with your friends} \par
     This is a major feature of the app so that users can be in groups with their friends.
     \item \textbf{[SH] The application should have the functionality to customize the clock} \par
-    Different groups of friends may use the clock for different purposes as seen in the user personas (see \ref{personas}), so the ability to change the statuses on the clock is very important. If all users had the same coloured hand this would create difficulties with identifying what user belongs to what hand. Giving the user the ability too change hand colour not only addresses this usability concern, but adds to the personalised experience for that user. The ability to customize the clock face also adds to the personalized experience.
-    \item \textbf{[SH] The application should have the functionality to allow customization of the users profile } \par
+    Different groups of friends may use the clock for different purposes as seen in the user personas (see \ref{personas}), so the ability to change the statuses on the clock is very important. If all users had the same coloured hand this would create difficulties with identifying what user belongs to what hand. Giving the user the ability to change hand colour not only addresses this usability concern, but adds to the personalised experience for that user. The ability to customize the clock face also adds to the personalized experience.
+    \item \textbf{[SH] The application should have the functionality to allow customization of the user's profile } \par
     Users should be able to change their username, bio, and profile picture for their account. This adds to the personalized experience of the application.
     \item \textbf{[SH] The application should have a friends system } \par
     Users should be able to request to be friends with a user to then allow them to be added to a group.
     \item \textbf{[SH] The application should allow users to have multiple groups } \par
-    Most people will have multiple friend groups all with different interests and members. Therefore, users should be able to create groups for these different friends and interests 
+    Most people will have multiple friend groups all with different interests and members. Therefore, users should be able to create groups for these different friends and interests. 
     \item \textbf{[SH] The application should have authentication for users } \par
     This ensures that users are validated before they can perform certain operations.
     \item \textbf{[CH] The application should have push notifications } \par
-    This was initially added as a could have requirement but was moved to must have as their was a change in the vision of the app that didn't include notifications.
+    This was initially added as a `could have' requirement but was moved to `must have' as their was a change in the vision of the app that didn't include notifications.
     \item \textbf{[WH] The application should have integration with real world location } \par
     This feature could be implemented at a later date with users having the option to have their GPS location made visible to friends.
     \item \textbf{[WH] The application should have animations } \par
     This is a feature that was briefly explored at the end of implementation but discarded as the to implement it would require a rework of the clock functionality. It was decided that this could be potentially added in a future iteration but was not essential to the application.
 \end{enumerate}
 \section{Non-Functional Requirements} \label{non-functional}
-These requirements are non functional, and address the usability of the application, and, specific properties it should have, not specific system behaviour. 
+These requirements are non-functional, and address the usability of the application, and, specific properties it should have, not specific system behaviour. 
 \begin{enumerate}
     \item \textbf{[MH] The application should have an intuitive navigation system }\par
     Users should be able to easily navigate throughout the app without any prior knowledge or instruction.
@@ -88,9 +88,9 @@ These requirements are non functional, and address the usability of the applicat
     \item \textbf{[SH] The application should have fast loading times }\par
     The application should not take a long time to load. Long loading times can make users leave the application and get very frustrated when using.
     \item \textbf{[WH] The application should have integration with dark mode }\par
-    In the future a different colour scheme could be used for when dark mode is activated on the users device. However, this was not essential to the operation of the application so was not implemented. 
+    In the future a different colour scheme could be used for when dark mode is activated on the user's device. However, this was not essential to the operation of the application so was not implemented. 
 \end{enumerate}
 
 \section{Summary}
 
-In summary, this chapter discussed the process of analyzing the problem, and eliciting of requirements. User personas were generated to give a greater understanding of the potential end users of the application. User stories were then derived from these personas to give a greater understanding to what a potential user would use the application for, and why. These methods, along with brainstorming sessions helped to gather the functional, and non-functional requirements for this project. Requirement prioritisation through the MoSCoW method was used to ensure requirements crucial to project success were highly prioritised. These requirements were then used to form a basis of the application, and guide the eventual design, and implementation phases.
+In summary, this chapter discussed the process of analysing the problem, and eliciting of requirements. User personas were generated to give a greater understanding of the potential end users of the application. User stories were then derived from these personas to give a greater understanding to what a potential user would use the application for, and why. These methods, along with brainstorming sessions helped to gather the functional, and non-functional requirements for this project. Requirement prioritisation through the MoSCoW method was used to ensure requirements crucial to project success were highly prioritised. These requirements were then used to form a basis of the application, and guide the eventual design, and implementation phases.
